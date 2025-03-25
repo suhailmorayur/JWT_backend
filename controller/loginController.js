@@ -1,14 +1,13 @@
-const Singup = require("../model/singupModel")
+const Signup = require("../model/signupModel")
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt');
-const secure = require("../middleware/secure");
 
 const login = async (req,res)=>{
     const email = req.body.email
     const password = req.body.password
 
-    const user = await Singup.findOne({email:email})
+    const user = await Signup.findOne({email:email})
 
     if(!user){
         return res.status(401).send("user note found")

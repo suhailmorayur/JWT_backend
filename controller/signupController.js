@@ -1,14 +1,14 @@
 
 const express = require('express')
-const Singup = require('../model/singupModel')
 const bcrypt = require('bcrypt');
+const Signup = require('../model/signupModel');
 const saltRounds = 10;
 
-const singup = async(req, res) => {
+const signup = async(req, res) => {
 try{
 const userDeatails = req.body
 const hash =bcrypt.hashSync(req.body.password, saltRounds)
-const newUser= new Singup({
+const newUser= new Signup({
     ...userDeatails,
     password:hash
 })
@@ -24,4 +24,4 @@ res.send(error)
 
 
   module.exports =
-  singup
+  signup

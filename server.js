@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 
 
-const singupRoutes = require('./routes/singupRoutes')
+const signupRoutes = require('./routes/signupRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const verifyRoutes = require('./routes/verifyRoutes');
 
@@ -17,7 +17,7 @@ app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
-app.use('/singup',singupRoutes)
+app.use('/signup',signupRoutes)
 app.use('/login',loginRoutes)
 
 app.use('/verify',secure, verifyRoutes)
